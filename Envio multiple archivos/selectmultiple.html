@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es"></html>
+<head>
+  <meta charset="UTF-8" >
+  <title>SUBIR FICHEROS</title>
+</head>
+<body>
+<form  enctype="multipart/form-data" method="post" action="guardarimagenesb.php">
+    <input type="hidden" name="MAX_FILE_SIZE" value="200000" /> <!--  200Kbytes -->
+    <label>Elija las imagenes que quieres subir:</label> 
+    <input name="archivos[]" type="file" accept="image/png, image/jpeg" multiple="">  /> <br />
+    
+    <input type="submit" value="Subir archivo" />
+    <input type="reset"  value=" Borrar selección ">
+    </form>
+
+</body>
+</html>
