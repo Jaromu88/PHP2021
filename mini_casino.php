@@ -20,8 +20,8 @@ function sacarResultado($opcion) {
     return $resultado;
 }
 
-
 ?>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -57,25 +57,23 @@ if (isset($_SESSION['cantidad'])) {
                 if (sacarResultado($_REQUEST['opcion'])) {
                     $ganas=0;
                     $ganas+=$_REQUEST['apuesta']*2;
-                    echo "RESULTADO DE LA APUESTA :".$_REQUEST['opcion']."<br>
-                           GANASTE<br>";
+                    echo "RESULTADO DE LA APUESTA :".$_REQUEST['opcion']."<br>GANASTE<br>";
                     $_SESSION['cantidad']+=$ganas;
                     
                     echo "Dispones de ".$_SESSION['cantidad']." €  para jugar<br>";   
                 } else {
-                    echo "RESULTADO DE LA APUESTA : no es ".$_REQUEST['opcion']."<br>
-                           PERDISTE<br>";
+                    echo "RESULTADO DE LA APUESTA : no es ".$_REQUEST['opcion']."<br>PERDISTE<br>";
                     $_SESSION['cantidad']-=$_REQUEST['apuesta'];
-                    echo "Dispones de ".$_SESSION['cantidad']." €  para jugar<br>";                    
+                    echo "Dispones de ".$_SESSION['cantidad']." € para jugar<br>";                    
                 }
             } else{
                 echo  "Error: No dispone de la cantidad apostada.<br>";
             }
         } else {
-            echo "Te falta selecionar la cantidad o la opcion a apostar.<br>";
+            echo "Debes indicar la cantidad y seleccionar la opcion a apostar.<br>";
         }
     } else{
-        echo "Dispones de ".$_SESSION['cantidad']." €  para jugar<br>";        
+        echo "Dispones de ".$_SESSION['cantidad']." € para jugar<br>";        
     }
     echo "Introduzca la cantidad para apostar  : <input name='apuesta' type='number' value='0' size='5' autofocus><br>";
     echo "Seleciona cual apostar:
@@ -90,11 +88,10 @@ if (isset($_SESSION['cantidad'])) {
 //Muestra la pantalla de bienvenida con las veces que he visitado el casino
 if (!isset($_SESSION['cantidad']) ) {
     echo "<h1>Bienvenido al casino</h1>";
-    echo "Número de visitas anteriores: ". $_COOKIE['sesiones']." <br>";
+    echo "Esta es su ". ($_COOKIE['sesiones']+1)."ª visita. <br>";
     echo "Introduzca el dinero con el que va a jugar:";
     echo "<input name='cantidad' type='number' value='0' autofocus> <br>
         <button name='entrar' value='entrar'>Entrar</button>";
-    
     
 }
 
