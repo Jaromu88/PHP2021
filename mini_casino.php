@@ -11,10 +11,10 @@ if (!isset($_COOKIE['sesiones'])) {
 function sacarResultado($opcion) {
     $resultado=false;
     $numero= rand(1,2);    
-    if($numero%2==0 && $opcion=='par'){
+    if($numero%2==0 && $opcion=='PAR'){
         $resultado=true;
     }
-    if($numero%2!=0 && $opcion=='impar'){
+    if($numero%2!=0 && $opcion=='IMPAR'){
         $resultado=true;
     }   
     return $resultado;
@@ -62,7 +62,7 @@ if (isset($_SESSION['cantidad'])) {
                     
                     echo "Dispones de ".$_SESSION['cantidad']." €  para jugar<br>";   
                 } else {
-                    echo "RESULTADO DE LA APUESTA : no es ".$_REQUEST['opcion']."<br>PERDISTE<br>";
+                    echo "RESULTADO DE LA APUESTA : NO ES ".$_REQUEST['opcion']."<br>PERDISTE<br>";
                     $_SESSION['cantidad']-=$_REQUEST['apuesta'];
                     echo "Dispones de ".$_SESSION['cantidad']." € para jugar<br>";                    
                 }
@@ -77,8 +77,8 @@ if (isset($_SESSION['cantidad'])) {
     }
     echo "Introduzca la cantidad para apostar  : <input name='apuesta' type='number' value='0' size='5' autofocus><br>";
     echo "Seleciona cual apostar:
-				<input name='opcion' value='par' type=radio>PAR &nbsp;
-				<input name='opcion' value='impar' type=radio>IMPAR <br>";
+				<input name='opcion' value='PAR' type=radio>PAR &nbsp;
+				<input name='opcion' value='IMPAR' type=radio>IMPAR <br>";
 
     echo" <button name='apostar' value='Apostar'>Apostar cantidad</button>
           <button name='salir' value='Salir'>Abandonar el Casino</button>";   
